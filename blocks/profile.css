@@ -1,0 +1,128 @@
+.profile {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+}
+
+.profile__info {
+  display: grid;
+  grid-template-areas:
+    "title button"
+    "descrition description";
+  grid-template-columns: minmax(auto, 373px) auto;
+}
+
+.profile__edit-button {
+  background: transparent url(../images/edit-button.svg) center no-repeat;
+  height: 24px;
+  width: 24px;
+  grid-area: button;
+  border: 1px;
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+
+.profile__add-button {
+  background: transparent url(../images/add-icon.svg) center no-repeat;
+  width: 150px;
+  height: 50px;
+  margin-left: auto;
+  border: 2px solid white;
+  border-radius: 2px;
+}
+
+.profile__title {
+  font-size: 42px;
+  grid-area: title;
+  margin: 0;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  overflow: hidden;
+  line-height: 48px;
+}
+
+.profile__description {
+  font-size: 18px;
+  line-height: 22px;
+  font-weight: 400;
+  margin: 0;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  margin-top: 7px;
+  max-width: 415px;
+  max-height: 22px;
+}
+
+.profile__image {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-position: center;
+  margin-right: 24px;
+}
+
+@media screen and (max-width: 800px) {
+  .profile {
+    flex-direction: row;
+  }
+  .profile__add-button {
+    margin-right: 27px;
+  }
+
+  .profile__image {
+    margin-left: 27px;
+  }
+
+  .profile__title {
+    max-width: 340px;
+    text-overflow: ellipsis;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .profile__add-button {
+    max-width: 282px;
+    margin: 0;
+    width: 100%;
+  }
+
+  .profile {
+    flex-direction: column;
+  }
+
+  .profile__title {
+    font-size: 22px;
+    text-align: center;
+    margin-top: 30px;
+  }
+
+  .profile__edit-button {
+    margin-top: 46px;
+    max-width: 18px;
+    max-height: 18px;
+    border: groove 1px;
+  }
+
+  .profile__description {
+    margin-bottom: 36px;
+    margin-top: 14px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    line-height: 16.94px;
+  }
+
+  .profile__info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .logo {
+    max-width: 126px;
+    max-height: 24px;
+  }
+}

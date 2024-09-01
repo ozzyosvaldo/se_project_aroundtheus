@@ -1,0 +1,9 @@
+.cards {
+  margin-top: 30px;
+}
+
+@media screen and (max-width: 680px) {
+  .cards__list {
+    grid-gap: 20px 19px;
+  }
+}
