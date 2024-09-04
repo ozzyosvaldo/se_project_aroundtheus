@@ -49,7 +49,6 @@
   white-space: nowrap;
   overflow: hidden;
   line-height: 48px;
-  text-overflow: ellipsis;
 }
 
 .profile__description {
@@ -103,11 +102,11 @@
   .profile__title {
     font-size: 22px;
     text-align: center;
-    margin-top: 30px;
+    margin-top: 25px;
   }
 
   .profile__edit-button {
-    margin-top: 46px;
+    margin-top: 41px;
     max-width: 18px;
     max-height: 18px;
     border: groove 1px;
