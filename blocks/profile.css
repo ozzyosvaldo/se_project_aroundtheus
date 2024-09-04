@@ -49,6 +49,7 @@
   white-space: nowrap;
   overflow: hidden;
   line-height: 48px;
+  text-overflow: ellipsis;
 }
 
 .profile__description {
