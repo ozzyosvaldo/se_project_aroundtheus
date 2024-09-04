@@ -7,12 +7,12 @@
   margin-top: 70px;
   margin-bottom: 60px;
   font-family: "Inter", Arial, Helvetica, sans-serif;
+  line-height: 21.78px;
 }
 
 @media screen and (max-width: 680px) {
   .footer__copyright {
     max-width: 282px;
-    max-height: 14px;
     margin-top: 48px;
     margin-bottom: 36px;
     font-size: 14px;

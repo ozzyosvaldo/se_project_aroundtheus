@@ -49,6 +49,7 @@
   white-space: nowrap;
   overflow: hidden;
   line-height: 48px;
+  text-overflow: ellipsis;
 }
 
 .profile__description {
@@ -59,7 +60,6 @@
   font-family: "Inter", Arial, Helvetica, sans-serif;
   margin-top: 7px;
   max-width: 415px;
-  max-height: 22px;
 }
 
 .profile__image {
@@ -127,10 +127,5 @@
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-  }
-
-  .logo {
-    max-width: 126px;
-    max-height: 24px;
   }
 }
