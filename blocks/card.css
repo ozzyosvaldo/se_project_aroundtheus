@@ -43,6 +43,10 @@
   border: none;
 }
 
+.card__like-button:hover {
+  opacity: 60%;
+}
+
 .card__title {
   text-overflow: ellipsis;
   white-space: nowrap;
