@@ -2,8 +2,12 @@
   margin-top: 30px;
 }
 
-@media screen and (max-width: 680px) {
+@media screen and (max-width: 620px) {
   .cards__list {
     grid-gap: 20px 19px;
+  }
+  .cards {
+    padding: 0 20px;
+    box-sizing: border-box;
   }
 }
