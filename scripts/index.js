@@ -37,9 +37,22 @@ const profileDescriptionInput = document.querySelector(
 );
 const profileEditform = profileEditModal.querySelector(".modal__form");
 
+// Functions
+
 function closePopup() {
   profileEditModal.classList.remove("modal_opened");
 }
+
+// Event Handlers
+
+function handleProfileEditSubmit(e) {
+  e.preventDefault();
+  profileTitle.textContent = profileTitleInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+  closePopup();
+}
+
+// EventListenrs
 
 profileEditButton.addEventListener("click", () => {
   profileTitleInput.value = profileTitle.textContent;
@@ -48,13 +61,6 @@ profileEditButton.addEventListener("click", () => {
   profileEditModal.classList.add("modal_opened");
 });
 
-profileRemoveModal.addEventListener("click", () => {
-  closePopup();
-});
+profileRemoveModal.addEventListener("click", closePopup);
 
-profileEditform.addEventListener("submit", (e) => {
-  e.preventDefault();
-  profileTitle.textContent = profileTitleInput.value;
-  profileDescription.textContent = profileDescriptionInput.value;
-  closePopup();
-});
+profileEditform.addEventListener("submit", handleProfileEditSubmit);
