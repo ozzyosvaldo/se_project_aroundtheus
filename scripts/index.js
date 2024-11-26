@@ -25,23 +25,33 @@ const initialCards = [
   },
 ];
 
-/* Elements*/
+/* wrappers*/
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileRemoveModal = document.querySelector("#profile-close-modal");
 const profileTitle = document.querySelector(".profile__title");
 const profileDescription = document.querySelector(".profile__description");
 const addNewCardButton = document.querySelector(".profile__add-button");
-
-const nameInput = document.querySelector("#profile-title-input");
-const jobInput = document.querySelector("#profile-description-input");
 const profileEditform = profileEditModal.querySelector(".modal__form");
+
+const nameInput = document.querySelector(".modal__input_type_name");
+const jobInput = document.querySelector(".modal__input_type_description");
+
 const cardListEl = document.querySelector(".cards__list");
 const cardTemplate =
   document.querySelector("#card-template").content.firstElementChild;
 const addCardModal = document.querySelector("#add-card-modal");
 const addCardRemoveModal = addCardModal.querySelector("#profile-close-modal");
+const addCardFormElement = addCardModal.querySelector(".modal__form");
 
+// buttons added
+const profileModalCloseButton = profileEditModal.querySelector(".modal__close");
+const addCradModalCloseButton = addCardModal.querySelector(".modal__close");
+
+const cardTitleInput = addCardFormElement.querySelector(
+  ".modal__input_type_title"
+);
+const cardUrlInput = addCardFormElement.querySelector(".modal__input_type_url");
 // Functions
 
 function closeModal(modal) {
@@ -77,6 +87,12 @@ function handleProfileEditSubmit(evt) {
   profileTitle.textContent = nameInput.value;
   profileDescription.textContent = jobInput.value;
   closeModal(profileEditModal);
+}
+
+function handleProfileEditSubmit(evt) {
+  evt.preventDefault();
+  const cardElement = getCardElement();
+  closeModal(addCardModal);
 }
 
 function openModal(modal) {
