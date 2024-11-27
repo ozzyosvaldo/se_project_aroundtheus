@@ -63,7 +63,10 @@ function getCardElement(cardData) {
 
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
-
+  const likeButton = cardElement.querySelector(".card__like-button");
+  likeButton.addEventListener("click", () => {
+    likeButton.classList.toggle("card__like-button_active");
+  });
   cardImageEl.src = cardData.link;
 
   cardImageEl.alt = cardData.name;
@@ -75,7 +78,6 @@ function getCardElement(cardData) {
 
 // Event Handlers
 
-//addCardModal.addEventListener("submit", handleProfileEditSubmit);
 profileEditButton.addEventListener("click", () => {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileDescription.textContent;
@@ -134,11 +136,4 @@ addCardRemoveModal.addEventListener("click", () => closeModal(addCardModal));
 
 initialCards.forEach((cardData) => {
   renderCard(cardData);
-});
-
-const likeButtons = document.querySelectorAll(".card__like-button");
-likeButtons.forEach((likeButton) => {
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
 });
