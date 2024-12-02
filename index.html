@@ -95,9 +95,20 @@
         </form>
       </div>
     </div>
+    <!-- pop up -->
+    <div class="modal" id="image-modal">
+      <div class="modal__container modal__container_preview">
+        <button class="modal__close"></button>
+        <img class="modal__image" alt="" src="#" />
+        <p class="modal__caption"></p>
+      </div>
+    </div>
 
     <template id="card-template">
       <li class="card">
+        <button class="card__delete-button">
+          <img src="./images/Trash-Button.svg" alt="" />
+        </button>
         <img src="" class="card__image" alt="" />
         <div class="card__description">
           <h2 class="card__title"></h2>
