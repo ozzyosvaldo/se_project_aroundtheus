@@ -16,4 +16,10 @@
 
 .modal__caption {
   margin-top: 10px;
+  height: 12px;
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  width: 291px;
+  font-weight: 400;
+  line-height: 14.52px;
+  font-size: 12px;
 }
