@@ -94,11 +94,6 @@ function getCardElement(cardData) {
   return cardElement;
 }
 
-function addCardToDOM(card) {
-  const cardsContainer = document.querySelector(".cards");
-  cardsContainer.appendChild(card);
-}
-
 // Event Handlers
 
 profileEditButton.addEventListener("click", () => {
@@ -129,6 +124,7 @@ function handleAddCardSUbmit(evt) {
     name,
     link,
   });
+  evt.target.reset();
   closeModal(addCardModal);
 }
 
@@ -143,34 +139,23 @@ function renderCard(cardData) {
 
 // EventListenrs
 
-profileEditButton.addEventListener("click", () => {
-  nameInput.value = profileTitle.textContent;
-  jobInput.value = profileDescription.textContent;
-  openModal(profileEditModal);
-});
-
 profileEditform.addEventListener("submit", handleProfileEditSubmit);
 addCardFormElement.addEventListener("submit", handleAddCardSUbmit);
-
-// profileRemoveModal.addEventListener("click", () =>
-//   closeModal(profileEditModal)
-// );
 
 addNewCardButton.addEventListener("click", () => {
   openModal(addCardModal);
 });
 
-//addCardRemoveModal.addEventListener("click", () => closeModal(addCardModal));
-
 //query select all the close buttons and put them in an array
 //loop through the array, add an event listener to each close button
 //so that when we click it, it close the currently opened modal
 const closeButtons = [...document.querySelectorAll(".modal__close")];
+
 closeButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    const openedModal = document.querySelector(".modal_opened");
-    closeModal(openedModal);
-  });
+  // Find the closest popup only once
+  const popup = button.closest(".modal");
+  // Set the listener
+  button.addEventListener("click", () => closeModal(popup));
 });
 
 initialCards.forEach((cardData) => {
