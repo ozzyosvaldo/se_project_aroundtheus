@@ -1,9 +1,11 @@
 // enabling validation by calling enableValidation()
 // pass all the settings on call
 
-function enableValidation(config) {
-  const formEls = Array.from(document.querySelectorAll(".modal__form"));
-  console.log(formEls);
+function enableValidation(options) {
+  const formEls = [...document.querySelectorAll(".modal__form")];
+  formEls.forEach((formEl) => {
+    formEl.addEventListener("Submit" () =>{});
+  });
 }
 
 const config = {
