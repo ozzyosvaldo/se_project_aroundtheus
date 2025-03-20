@@ -70,6 +70,15 @@ function closeModal(modal) {
   modal.classList.remove("modal_opened");
 }
 
+function openModal(modal) {
+  modal.classList.add("modal_opened");
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeModal(modal);
+    }
+  });
+}
+
 function getCardElement(cardData) {
   const cardElement = cardTemplate.cloneNode(true);
 
@@ -137,10 +146,6 @@ function handleAddCardSubmit(evt) {
   });
   evt.target.reset();
   closeModal(addCardModal);
-}
-
-function openModal(modal) {
-  modal.classList.add("modal_opened");
 }
 
 function renderCard(cardData) {

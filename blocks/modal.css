@@ -74,9 +74,11 @@
 }
 
 .modal__button_disabled {
-  background-color: rgba(0, 0, 0, 1);
+  background-color: #fff;
+  color: gray;
+  border-color: gray;
   border-width: 1px;
-  opacity: 0.2;
+  opacity: 20%;
   border-radius: 2px;
 }
 
