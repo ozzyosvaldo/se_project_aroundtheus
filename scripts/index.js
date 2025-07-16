@@ -1,3 +1,4 @@
+import FormValidator from "./FormValidator.js";
 import Card from "./card.js";
 
 const initialCards = [
@@ -110,6 +111,29 @@ function getCardElement(cardData) {
 
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardTitleEl = cardElement.querySelector(".card__title");
+
+  // validation
+
+  const validationSettings = {
+    inputSelector: ".modal__input",
+    submitButtonSelector: ".modal__button",
+    inactiveButtonClass: "modal__button_disabled",
+    inputErrorClass: "modal__input_type_error",
+    errorClass: "modal__error_visible",
+  };
+  const editFormElement = profileEditModal.querySelector(".modal__form");
+  const addFormElement = addNewCardButton.querySelector(".modal__form");
+
+  const newFormValidator = new FormValidator(
+    validationSettings,
+    editFormElement
+  );
+
+  const addFormValidator = new FormValidator(
+    validationSettings,
+    editFormElement
+  );
+
   const likeButton = cardElement.querySelector(".card__like-button");
   likeButton.addEventListener("click", () => {
     likeButton.classList.toggle("card__like-button_active");
