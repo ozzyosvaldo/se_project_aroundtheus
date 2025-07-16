@@ -55,7 +55,7 @@ const addCardModal = document.querySelector("#add-card-modal");
 const addCardRemoveModal = addCardModal.querySelector("#profile-close-modal");
 const addCardFormElement = addCardModal.querySelector(".modal__form");
 //pop up wrappers
-const previewModal = document.querySelector("#preview-img");
+const previewModal = document.querySelector("#image-modal");
 
 // buttons added
 const profileModalCloseButton = profileEditModal.querySelector(".modal__close");
@@ -122,12 +122,14 @@ function getCardElement(cardData) {
     errorClass: "modal__error_visible",
   };
   const editFormElement = profileEditModal.querySelector(".modal__form");
+  const addCardModal = document.querySelector("#add-card-modal");
   const addFormElement = addNewCardButton.querySelector(".modal__form");
 
   const newFormValidator = new FormValidator(
     validationSettings,
     editFormElement
   );
+  newFormValidator.enableValidation();
 
   const addFormValidator = new FormValidator(
     validationSettings,

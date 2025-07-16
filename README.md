@@ -1,10 +1,39 @@
-SE_PROJECT_AROUNDTHE U.S
-This project contains CSS and HTML code that allows you to see the diffrent elements/ cards that conatin diffrent places around the world. Kinda like a mini Jornal but on a website.
+# 📝 ToDo App
 
-We created button attributes so when you hover over the Like, Plus and edit button's they change color and to be able to add javascript actions to them, this will help makes the page and buttons come to life. We also added diffrent screen @media's to be able to make the website look nice on diffrent screen sizes (Iphones, Tablets, Deasktops).
+A responsive ToDo List application built using Object-Oriented JavaScript. Users can add tasks, mark them complete, and delete them. Validation is handled using reusable class logic.
 
-<!-- Around the U.S -->
-<!-- Check out the live demo -->[here](https://ozzyosvaldo.github.io/se_project_aroundtheus)
+## 🚀 Live Demo
+
+[🔗 View the deployed project](https://ozzyosvaldo.github.io/se_project_aroundtheus)
+
+## 💡 Features
+
+- Add new todos via a modal form
+- Real-time form validation using `FormValidator` class
+- Each todo has a unique ID (via `Date.now()` or UUID)
+- Mark tasks as completed or delete them
+- Fully responsive and accessible UI
+
+## 🧩 Core Classes
+
+### `Todo`
+
+- Encapsulates todo logic
+- Private fields for title, ID, and completion state
+- `getView()` returns DOM element
+- Handles internal event listeners (complete, delete)
+
+### `FormValidator`
+
+- Validates inputs in real-time
+- Manages submit button state
+- Supports `resetValidation()` on modal open
+
+## 🛠️ Built With
+
+- HTML5
+- CSS3
+- JavaScript (ES6+)
 
 video=
 https://www.loom.com/share/b9be1c1c3e8548158b3ead210d72c8d0?sid=6bcd346f-b436-4d2a-bdc5-7f85265c82a1
