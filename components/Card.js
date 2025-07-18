@@ -1,5 +1,5 @@
 export default class Card {
-  constructor({ name, link }, cardSelector) {
+  constructor({ name, link }, cardSelector, handleImageClick) {
     this._name = name;
     this._link = link;
     this._cardSelector = cardSelector;
@@ -30,7 +30,7 @@ export default class Card {
   _handleLikeIcon() {
     this._cardElement
       .querySelector(".card__like-button")
-      .classList.toggle("card__like-button_is-active");
+      .classList.toggle("card__like-button_active");
   }
 
   getview() {

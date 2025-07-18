@@ -1,5 +1,5 @@
-import FormValidator from "./FormValidator.js";
-import Card from "./card.js";
+import FormValidator from "../components/FormValidator.js";
+import Card from "../components/Card.js";
 
 const initialCards = [
   {
@@ -77,16 +77,6 @@ const modalList = document.querySelectorAll(".modal");
 
 // Functions
 
-//previous funtion used 03/20/25
-// function openModal(modal) {
-//   modal.classList.add("modal_opened");
-//   document.addEventListener("keydown", (event) => {
-//     if (event.key === "Escape") {
-//       closeModal(modal);
-//     }
-//   });
-// }
-
 function closeModal(modal) {
   modal.classList.remove("modal_opened");
   document.removeEventListener("keydown", handleEscape);
@@ -122,8 +112,8 @@ function getCardElement(cardData) {
     errorClass: "modal__error_visible",
   };
   const editFormElement = profileEditModal.querySelector(".modal__form");
-  const addCardModal = document.querySelector("#add-card-modal");
-  const addFormElement = addNewCardButton.querySelector(".modal__form");
+
+  const addFormElement = addCardModal.querySelector(".modal__form");
 
   const newFormValidator = new FormValidator(
     validationSettings,
@@ -133,7 +123,7 @@ function getCardElement(cardData) {
 
   const addFormValidator = new FormValidator(
     validationSettings,
-    editFormElement
+    addCardFormElement
   );
 
   const likeButton = cardElement.querySelector(".card__like-button");
