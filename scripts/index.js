@@ -96,56 +96,63 @@ function openModal(modal) {
   document.addEventListener("keydown", handleEscape);
 }
 
+// validation
+
+const validationSettings = {
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};
+
 function getCardElement(cardData) {
-  const cardElement = cardTemplate.cloneNode(true);
-
-  const cardImageEl = cardElement.querySelector(".card__image");
-  const cardTitleEl = cardElement.querySelector(".card__title");
-
-  // validation
-
-  const validationSettings = {
-    inputSelector: ".modal__input",
-    submitButtonSelector: ".modal__button",
-    inactiveButtonClass: "modal__button_disabled",
-    inputErrorClass: "modal__input_type_error",
-    errorClass: "modal__error_visible",
-  };
-  const editFormElement = profileEditModal.querySelector(".modal__form");
-
-  const addFormElement = addCardModal.querySelector(".modal__form");
-
-  const newFormValidator = new FormValidator(
-    validationSettings,
-    editFormElement
-  );
-  newFormValidator.enableValidation();
-
-  const addFormValidator = new FormValidator(
-    validationSettings,
-    addCardFormElement
-  );
-
-  const likeButton = cardElement.querySelector(".card__like-button");
-  likeButton.addEventListener("click", () => {
-    likeButton.classList.toggle("card__like-button_active");
-  });
-  cardImageEl.src = cardData.link;
-
-  cardImageEl.alt = cardData.name;
-
-  cardTitleEl.textContent = cardData.name;
-
-  cardElement
-    .querySelector(".card__delete-button")
-    .addEventListener("click", () => {
-      cardElement.remove();
-    });
-
-  cardImageEl.addEventListener("click", (e) => handlePreviewImage(cardData));
-
-  return cardElement;
+  const card = new Card(cardData, "#card-template", handlePreviewImage);
+  return card.getview();
 }
+// THIS IS FORMYSLELF i will remove this if my code passes
+
+// function getCardElement(cardData) {
+//   const cardElement = cardTemplate.cloneNode(true);
+
+//   const cardImageEl = cardElement.querySelector(".card__image");
+//   const cardTitleEl = cardElement.querySelector(".card__title");
+
+//   const editFormElement = profileEditModal.querySelector(".modal__form");
+
+//   const addFormElement = addCardModal.querySelector(".modal__form");
+
+//   const newFormValidator = new FormValidator(
+//     validationSettings,
+//     editFormElement
+//   );
+//   newFormValidator.enableValidation();
+
+//   const addFormValidator = new FormValidator(
+//     validationSettings,
+//     addCardFormElement
+//   );
+
+//   const likeButton = cardElement.querySelector(".card__like-button");
+//   likeButton.addEventListener("click", () => {
+//     likeButton.classList.toggle("card__like-button_active");
+//   });
+//   cardImageEl.src = cardData.link;
+
+//   cardImageEl.alt = cardData.name;
+
+//   cardTitleEl.textContent = cardData.name;
+
+//   cardElement
+//     .querySelector(".card__delete-button")
+//     .addEventListener("click", () => {
+//       cardElement.remove();
+//     });
+
+//   cardImageEl.addEventListener("click", (e) => handlePreviewImage(cardData));
+
+//   return cardElement;
+// }
 function handleModalClose(e) {
   if (e.target.classList.contains("modal")) {
     closeModal(e.currentTarget);
