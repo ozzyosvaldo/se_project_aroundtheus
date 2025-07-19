@@ -57,14 +57,14 @@ function setEventListeners(formEl, options) {
 function enableValidation(options) {
   const formEls = [...document.querySelectorAll(options.formSelector)];
   formEls.forEach((formEl) => {
-    formEl.addEventListener("Submit", (e) => {
+    formEl.addEventListener("submit", (e) => {
       e.preventDefault();
     });
     setEventListeners(formEl, options);
   });
 }
 
-const config = {
+const validationSettings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
@@ -73,4 +73,4 @@ const config = {
   errorClass: "modal__error_visible",
 };
 
-enableValidation(config);
+enableValidation(validationSettings);
