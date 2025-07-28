@@ -33,9 +33,6 @@ const cardData = {
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
-const card = new Card(cardData, "#card-template");
-card.getview();
-
 /* wrappers*/
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -83,12 +80,18 @@ const validationSettings = {
   errorClass: "modal__error_visible",
 };
 
-// ✅ Create FormValidator instance for the add card form
+// ✅ Create FormValidator
 const addCardFormValidator = new FormValidator(
   validationSettings,
   addCardFormElement
 );
 addCardFormValidator.enableValidation();
+
+const profileFormValidator = new FormValidator(
+  validationSettings,
+  profileEditform
+);
+profileFormValidator.enableValidation();
 
 // Functions
 
@@ -134,10 +137,10 @@ profileEditButton.addEventListener("click", () => {
   openModal(profileEditModal);
 });
 
-function handlePreviewImage(data) {
-  imageModalImage.src = data.link;
-  imageModalImage.alt = data.name;
-  imageModalCaption.textContent = data.name;
+function handlePreviewImage(name, link) {
+  imageModalImage.src = link;
+  imageModalImage.alt = name;
+  imageModalCaption.textContent = name;
   openModal(imageModal);
 }
 
@@ -155,7 +158,7 @@ function handleAddCardSubmit(evt) {
 
   renderCard({ name, link });
   evt.target.reset();
-  addCardFormValidator.toggleButtonState();
+  addCardFormValidator.resetValidation();
   closeModal(addCardModal);
 }
 // function handleAddCardSubmit(evt) {

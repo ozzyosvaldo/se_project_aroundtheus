@@ -70,6 +70,9 @@ class FormValidator {
     });
     this._toggleButtonState();
   }
+  toggleButtonState() {
+    this._toggleButtonState();
+  }
 }
 
 export default FormValidator;
